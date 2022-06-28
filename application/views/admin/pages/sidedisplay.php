@@ -1,13 +1,9 @@
 <section class="content-header">
   <h1>
-      System User Management
+      Side Display Management
   </h1>
 </section>
 <section class="content">
-   <div class="callout callout-info">
-        <h4>Reminder!</h4>
-        Bhutan Telecom Web System will automatically create password for all the User that you create.The system created password (bt@2022)
-      </div>
       <?php  
         if($message!='Undefined' && $message!=''){
       ?>
@@ -31,31 +27,24 @@
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">Create New System Users</h3>
-          <span><button class="btn btn-success fa-pull-right" onclick="addinfo()" type="button"><i class="fa fa-plus"></i> Add Users</button></span>
+          <h3 class="box-title">Create New Side Display</h3>
+          <span><button class="btn btn-success fa-pull-right" onclick="addinfo()" type="button"><i class="fa fa-plus"></i> Add </button></span>
         </div>
         <div class="box-body">
           <table id="example1" class="table table-bordered table-striped">
             <thead>
             <tr>
               <th>No.</th>
-              <th>Email Address</th>
-              <th>Name</th>
-              <th>Phone</th>
-              <!-- <th>User Image</th> -->
+              <th>Image</th>
               <th>Status</th>
-              <th>Role Name</th>
               <th>Action</th>
             </tr>
             </thead>
             <tbody>
-            <?php foreach($t_user as $i=> $event): ?>
+            <?php foreach($t_sidedisplay as $i=> $event): ?>
             <tr>
               <td><?=$i+1?></td>
-              <td><?php echo $event['Email'];?></td>
-              <td><?php echo $event['Name'];?></td>
-              <td><?php echo $event['Contact_No'];?></td>
-              <!-- <td><img src="<?php echo base_url();?>uploads/Image" onerror="this.src='<?php echo base_url();?>uploads/user1-128x128.jpg'" class="user-image" alt="User Image"></td> -->
+              <td><img style="width: 100px; height: 100px;" src="<?php echo $event['Image'];?>"></td>
               <td>
                 <?php if($event['Status']=="Active"){ ?><span class="label label-success"><?php echo $event['Status'];?></span>
                       <?php } else{?>   
@@ -63,9 +52,9 @@
                       <?php }?>
 
               </td>
-              <td><?php echo $event['Role_Id'];?></td>
               <td>
-                <button type="button" class="btn btn-block btn-primary" onclick="editinfo('<?php echo $event['Id']?>','<?php echo $event['Email_Id']?>','<?php echo $event['Name']?>','<?php echo $event['Mobile_Number']?>','<?php echo $event['Role_Id']?>','<?php echo $event['Status']?>')"><i class="fa fa-edit"></i>Edit</button> 
+                <button type="button" class="btn btn-block btn-primary" onclick="editinfo('<?php echo $event['Id']?>','<?php echo $event['Email_Id']?>','<?php echo $event['Name']?>','<?php echo $event['Mobile_Number']?>','<?php echo $event['Role_Id']?>','<?php echo $event['Status']?>')"><i class="fa fa-edit"></i>Edit</button>
+                <button type="button" class="btn btn-block btn-danger" onclick="editinfo('<?php echo $event['Id']?>','<?php echo $event['Email_Id']?>','<?php echo $event['Name']?>','<?php echo $event['Mobile_Number']?>','<?php echo $event['Role_Id']?>','<?php echo $event['Status']?>')"><i class="fa fa-edit"></i>Delete</button> 
               </td>
               </tr>
               <?php endforeach;?>
@@ -76,7 +65,7 @@
     </div>
   </div>
 </section>
-<div class="modal modal-default" id="addusersDetails">
+<div class="modal modal-default" id="addproduct">
     <div class="modal-dialog">
       <div class="modal-content">
           <div class="modal-header" style="background: green;">
@@ -88,51 +77,21 @@
           <div class="modal-body">
               <div class="row">
                   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    
                     <div class="form-group">
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                          <label>Name:<span class="text-danger">*</span></label>
-                            <input type="text" id="Name" onclick="remove_err('Name_err')" name="Name" class="form-control">
-                            <span id="Name_err" class="text-danger"></span>
+                       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                          <label>Images</label>
+                             <label>Upload Side Display Images:<span class="text-danger">*</span></label><span style="color: red;"><i>(Image Size:370*230)</i></span>
+                            <input type="file" id="images" onchange="checkfilesize(this,'images','Image_err','addBtn')" onclick="remove_err('Image_err')" name="Image" class="form-control">
+                            <span id="Image_err" class="text-danger"></span>
                         </div>
-                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                          <label>Email Address:<span class="text-danger">*</span></label>
-                            <input type="text" id="Email" onclick="remove_err('Email_err')" name="Email" class="form-control">
-                            <span id="Email_err" class="text-danger"></span>
-                        </div>
-                      </div>
-                    <div class="form-group">
-                       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                          <label>Designation:</label>
-                            <input type="text" id="Designation1" name="Designation1" class="form-control" readonly>
-                        </div>
-                       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                          <label>Phone:<span class="text-danger">*</span></label>
-                            <input type="text" id="Phone" onclick="remove_err('Phone_err')" name="Phone" class="form-control">
-                            <span id="Phone_err" class="text-danger"></span>
-                        </div>
-                        
                     </div>
-                    <div class="form-group">
-                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                          <label>User Type: <span class="text-danger">*</span></label>
-                          <select id="role" onclick="remove_err('role_err')" class="form-control" name="role">
-                            <option value="">Select User Type</option>
-                              <?php  
-                                foreach($t_role as $i=> $dzo):
-                              ?>
-                                <option value="<?=$dzo['Role_Name'];?>"> <?=$dzo['Role_Name'];?></option>
-                              <?php 
-                                endforeach; 
-                              ?>
-                          </select>
-                          <span id="role_err" class="text-danger"></span>
-                        </div>
-                      </div>
+                    
                   </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" onclick="addusersinfo()">Save changes</button>
+                <button type="button" class="btn btn-primary" onclick="addproductinfo()">Save changes</button>
               </div>
             </div>
             </form>
@@ -221,11 +180,11 @@
   })
  function addinfo(){
     $('#actiontype').val('add');
-    $('#medelheaderspan').html('Add System User');
-    $('#btnspan').html('<i class="fa fa-save"></i> Add New User');
-    $('#addusersDetails').modal('show');
+    $('#medelheaderspan').html('Add Side Display Image');
+    $('#btnspan').html('<i class="fa fa-save"></i> Add Side Display Image');
+    $('#addproduct').modal('show');
   }
-function addusersinfo(){
+function addproductinfo(){
   if(validateaddform()){
   $.blockUI
       ({ 
@@ -240,31 +199,15 @@ function addusersinfo(){
             color: '#fff' 
         } 
       });
-      var url='<?php echo base_url();?>index.php?adminController/AddSystemUsers';
+      var url='<?php echo base_url();?>index.php?adminController/Addsidedisplay';
       var options = {target: '#mainContentdiv',url:url,type:'POST',data: $("#addformId").serialize()}; 
       $("#addformId").ajaxSubmit(options);
       setTimeout($.unblockUI, 600); 
-      $('#addusersDetails').modal('hide');
+      $('#addproduct').modal('hide');
 }
 }
   function validateaddform(){
     var retrtype=true;
-    if($('#Email').val()==""){
-      $('#Email_err').html('Please Enter Email Address.');
-      retrtype=false;
-    }
-    if($('#role').val()==""){
-      $('#role_err').html('Please Select a Role Id.');
-      retrtype=false;
-    }
-    if($('#Name').val()==""){
-      $('#Name_err').html('Please Enter Full Name.');
-      retrtype=false;
-    }
-    if($('#Phone').val()==""){
-      $('#Phone_err').html('Please Enter a Mobile_Number.');
-      retrtype=false;
-    }
     return retrtype;
   }
    function editinfo(Editid,email,name,phone,rol,tatus){

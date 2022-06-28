@@ -3,6 +3,9 @@
     $this->load->view('web/includes/head.php');
 ?>
 <body>
+    <?php
+    $this->load->view('web/includes/navbar.php');
+?>
   <div id="mainpublicContent">
     <div class="breadcrumb-area">
         <div class="container">
@@ -54,6 +57,9 @@
         </div>
     </div>
 </div>
+<?php
+    $this->load->view('web/includes/footer.php');
+?>
 <script>
 function login(){
   if(validate()){

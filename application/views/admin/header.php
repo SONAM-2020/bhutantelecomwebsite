@@ -2,7 +2,7 @@
 <div class="wrapper">
   <header class="main-header">
     <a href="<?php echo base_url();?>index.php?adminController/dashboard" class="logo">
-      <span class="logo-lg">HRAM SYSTEM</span>
+      <span class="logo-lg">BHUTAN TELECOM LTD</span>
     </a>
     <nav class="navbar navbar-static-top">
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
@@ -11,6 +11,7 @@
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
+          <li class="pull-left"><a href="<?php echo base_url() ?>" target="_blank" class="nav-link">Website Homepage</a></li>
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="<?php echo base_url();?>uploads/<?php echo $this->session->userdata('Image');?>" onerror="this.src='<?php echo base_url();?>uploads/user1-128x128.jpg'" class="user-image" alt="User Image">
@@ -20,8 +21,8 @@
               <li class="user-header">
                 <img src="<?php echo base_url();?>uploads/<?php echo $this->session->userdata('Image');?>" onerror="this.src='<?php echo base_url();?>uploads/user1-128x128.jpg'" class="img-circle" alt="User Image">
                 <p>
-                  <?php echo $this->session->userdata('UserName');?>
-                  <small><?php echo $this->session->userdata('designation');?></small>
+                  <?php echo $this->session->userdata('Name');?>
+                  <small><?php echo $this->session->userdata('Designation');?></small>
               </li>
               <li class="user-body">
                 <div class="row">
@@ -59,7 +60,7 @@
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-          <a href="<?php echo base_url();?>index.php?adminController/logout"> <button type="button"  class="btn btn-primary">Yes</button></a>
+          <a href="<?php echo base_url();?>index.php?loginController/logout"> <button type="button"  class="btn btn-primary">Yes</button></a>
             </div>
           </div>
         </div>

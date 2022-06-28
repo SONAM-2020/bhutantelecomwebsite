@@ -11,7 +11,6 @@
       </div>
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-       <?php if($this->session->userdata('Role_Id')=="Adminstrator"){?>
         <li class="treeview">
           <a href="#"class="nav-link" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadpage/AddUsers/')">
             <i class="fa fa-laptop"></i>
@@ -22,144 +21,61 @@
           </a>
         </li>
         <li class="treeview">
-          <a href="#"class="nav-link" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadpage/SMS/')">
-            <i class="fa fa-laptop"></i>
-            <span>System SMS</span>
-            <span class="pull-right-container">
-              <span class="label label-primary pull-right"></span>
-            </span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="#"class="nav-link" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadpage/Addhotel/')">
-            <i class="fa fa-laptop"></i>
-            <span>Facility Management</span>
-            <span class="pull-right-container">
-              <span class="label label-primary pull-right"></span>
-            </span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="#"class="nav-link" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadpage/AdduserUnit/')">
-            <i class="fa fa-laptop"></i>
-            <span>User Unit Management</span>
-            <span class="pull-right-container">
-              <span class="label label-primary pull-right"></span>
-            </span>
-          </a>
-        </li>
-        
-        <li class="treeview">
           <a href="#">
-            <i class="fa fa-laptop"></i>
-            <span>Ambulance Movement</span>
-            <span class="pull-right-container"> 
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#"class="nav-link" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadpage/AddHostReferal/')"><i class="fa fa-circle-o"></i> New Entry Form</a></li>
-             <li><a href="#"class="nav-link" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadpage/Entry/')"><i class="fa fa-circle-o"></i> My Entry</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#"class="nav-link" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadpage/DestinationHospAriv/')">
-            <i class="fa fa-laptop"></i>
-            <span>Destination Hospital Entry</span>
-            <span class="pull-right-container">
-              <span class="label label-primary pull-right"></span>
-            </span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="#"class="nav-link" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadpage/QuaratineReporting/')">
-            <i class="fa fa-laptop"></i>
-            <span>Quarantine Facility Entry</span>
-            <span class="pull-right-container">
-              <span class="label label-primary pull-right"></span>
-            </span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="#"class="nav-link" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadpage/BaseHospReporting/')">
-            <i class="fa fa-laptop"></i>
-            <span>Base Hospital Entry</span>
-            <span class="pull-right-container">
-              <span class="label label-primary pull-right"></span>
-            </span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="#"class="nav-link" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadpage/rcdcentry/')">
-            <i class="fa fa-laptop"></i>
-            <span>RCDC Entry</span>
-            <span class="pull-right-container">
-              <span class="label label-primary pull-right"></span>
-            </span>
-          </a>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-laptop"></i>
-            <span>Reports</span> 
+             <i class="fa fa-laptop"></i>
+            <span>System Management</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadpage/reportIndex/')"><i class="fa fa-circle-o"></i>Amb & Dzongkhag Report</a></li>
-            <li><a href="#" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadpage/ambDreportIndex/')"><i class="fa fa-circle-o"></i>Amb Driver/Escort Report</a></li>
-            <li><a href="#" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadpage/reporTriptIndex/')"><i class="fa fa-circle-o"></i>Ambulance Timing Report</a></li>
+            <li><a href="#" class="nav-link" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadpage/Addslider/')">Home Slider</a></li>
+            <li><a href="#" class="nav-link" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadpage/Addsidedisplay/')">Side Display</a></li>
+            <li><a href="#" class="nav-link" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadpage/News/')">News & Announcement</a></li>
           </ul>
         </li>
-        <?php } if($this->session->userdata('Role_Id')=="hhc_user"){ ?>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-laptop"></i>
-            <span>Ambulance Movement</span>
-            <span class="pull-right-container"> 
+             <i class="fa fa-laptop"></i>
+            <span>Product Management</span>
+            <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"class="nav-link" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadpage/AddHostReferal/')"><i class="fa fa-circle-o"></i> New Entry Form</a></li>
-             <li><a href="#"class="nav-link" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadpage/Entry/')"><i class="fa fa-circle-o"></i> My Entry</a></li>
+            <li><a href="#" class="nav-link" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadpage/featuredproduct/')">Featured Product</a></li>
           </ul>
         </li>
-
-        
-      <?php } if($this->session->userdata('Role_Id')=="desthospital_user"){ ?>
         <li class="treeview">
-          <a href="#"class="nav-link" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadpage/DestinationHospAriv/')">
-            <i class="fa fa-laptop"></i>
-            <span>Destination Hospital Entry</span>
+          <a href="#">
+             <i class="fa fa-laptop"></i>
+            <span>Offer Management</span>
             <span class="pull-right-container">
-              <span class="label label-primary pull-right"></span>
+              <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
+          <ul class="treeview-menu">
+            <li><a href="#" class="nav-link" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadpage/Birth_History/')">འཁྲུངས་རབས།</a></li>
+            <li><a href="#" class="nav-link" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadpage/Successive_Reincarnations/')">སྐུ་ཕྲེང་རིམ་བྱོན།</a></li>
+            <li><a href="#" class="nav-link" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadpage/Intro_Rinpoche/')">སྐྱབས་རྗེ་རིན་པོ་ཆེའི་ངོ་སྤྲོད།</a></li>
+            <li><a href="#" class="nav-link" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadpage/Activities/')">མཛད་རྣམ།</a></li>
+          </ul>
         </li>
-
-      <?php } if($this->session->userdata('Role_Id')=="basehospital_user"){ ?>
         <li class="treeview">
-          <a href="#"class="nav-link" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadpage/BaseHospReporting/')">
-            <i class="fa fa-laptop"></i>
-            <span>Base Hospital Entry</span>
+          <a href="#">
+             <i class="fa fa-laptop"></i>
+            <span>Service Management</span>
             <span class="pull-right-container">
-              <span class="label label-primary pull-right"></span>
+              <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
+          <ul class="treeview-menu">
+            <li><a href="#" class="nav-link" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadpage/Birth_History/')">འཁྲུངས་རབས།</a></li>
+            <li><a href="#" class="nav-link" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadpage/Successive_Reincarnations/')">སྐུ་ཕྲེང་རིམ་བྱོན།</a></li>
+            <li><a href="#" class="nav-link" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadpage/Intro_Rinpoche/')">སྐྱབས་རྗེ་རིན་པོ་ཆེའི་ངོ་སྤྲོད།</a></li>
+            <li><a href="#" class="nav-link" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadpage/Activities/')">མཛད་རྣམ།</a></li>
+          </ul>
         </li>
-      <?php } if($this->session->userdata('Role_Id')=="hotel_user"){ ?>
-        <li class="treeview">
-          <a href="#"class="nav-link" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadpage/QuaratineReporting/')">
-            <i class="fa fa-laptop"></i>
-            <span>Quarantine Facility Entry</span>
-            <span class="pull-right-container">
-              <span class="label label-primary pull-right"></span>
-            </span>
-          </a>
-        </li>
-      <?php } ?>
         <li class="treeview">
           <a href="#"class="nav-link" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadpage/Guidelines/')">
             <i class="fa fa-laptop"></i>
